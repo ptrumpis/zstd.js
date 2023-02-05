@@ -1,13 +1,22 @@
-*This is mostly a POC and isn't used in production, you have been warned!*
+# Zstd.js
+Small Web Browser compatible zstd library with WebAssembly in a single file.
 
-[`zstd`](https://github.com/facebook/zstd/) in the browser, because why not? ;)
+- Pre-build
+- No Node.js
+- No Webpack
+- No Bullshit
 
-## Build
+Perfect for CDN Usage.
+
+## Installation
+Use this repo as public CDN 
 ```
-$ git clone --recurse-submodules https://github.com/klausenbusk/zstd.js.git
-$ cd zstd.js
-$ make
+https://cdn.jsdelivr.net/gh/ptrumpis/zstd.js/dist/zstd.js
 ```
+
+Or copy and include the file *dist/zstd.js* in your web project.
+
+See also: [example.html](./example.html)
 
 ## Usage
 ```javascript
@@ -18,4 +27,10 @@ zstd.decompress(<Uint8Array>) <Uint8Array>
 zstd.compressString(<string>, <compressionLevel>) <Uint8Array>
 zstd.decompressString(<Uint8Array>) <string>
 ```
-See also: [example.html](./example.html)
+
+## Build
+```
+$ git clone --recurse-submodules https://github.com/ptrumpis/zstd.js.git
+$ cd zstd.js
+$ make
+```
