@@ -69,7 +69,7 @@ function decompress(input) {
 	let cBuff = _malloc(cSize);
 	HEAPU8.set(new Uint8Array(input), cBuff);
 
-	rSize = ZSTD_getFrameContentSize(cBuff, cSize);
+	let rSize = ZSTD_getFrameContentSize(cBuff, cSize);
 	if (rSize < 0) {
 		_free(cBuff);
 		throw new Error(rSize);
@@ -88,7 +88,7 @@ function decompress(input) {
 };
 
 Module.decompress = function(input) {
-	[rBuff, dSize] = decompress(input);
+	let [rBuff, dSize] = decompress(input);
 
 	let cData = new Uint8Array(HEAPU8.buffer, rBuff, dSize);
 	cData = copy(cData);
@@ -98,7 +98,7 @@ Module.decompress = function(input) {
 };
 
 Module.decompressString = function(input) {
-	[rBuff, dSize] = decompress(input);
+	let [rBuff, dSize] = decompress(input);
 
 	let s = UTF8ToString(rBuff, dSize);
 	_free(rBuff);

@@ -1,8 +1,9 @@
 CC := emcc
 CFLAGS = -O3 \
 	-s WASM=1 \
+	-s SINGLE_FILE \
 	-s EXPORTED_FUNCTIONS="['_ZSTD_compress','_ZSTD_compressBound','_ZSTD_getFrameContentSize','_ZSTD_decompress','_ZSTD_isError','_ZSTD_getErrorName','_malloc','_free']" \
-	-s EXTRA_EXPORTED_RUNTIME_METHODS="['cwrap','stringToUTF8','UTF8ToString','lengthBytesUTF8']" \
+	-s EXPORTED_RUNTIME_METHODS="['cwrap','stringToUTF8','UTF8ToString','lengthBytesUTF8']" \
 	-s ALLOW_MEMORY_GROWTH=1 \
 	-s MODULARIZE=1 \
 	-s EXPORT_NAME="'ZSTD'" \
